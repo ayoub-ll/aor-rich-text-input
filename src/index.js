@@ -2,8 +2,6 @@ import debounce from 'lodash.debounce';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Quill from 'quill';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
 
 require('./RichTextInput.css');
 
@@ -51,11 +49,11 @@ class RichTextInput extends Component {
     render() {
         const { error, helperText = false } = this.props.meta;
         return (
-            <FormControl error={error} className="aor-rich-text-input">
+            <div className="aor-rich-text-input">
                 <div ref={this.updateDivRef} />
-                {error && <FormHelperText>{error}</FormHelperText>}
-                {helperText && <FormHelperText>{helperText}</FormHelperText>}
-            </FormControl>
+                {error && <div>{error}</div>}
+                {helperText && <div>{helperText}</div>}
+            </div>
         );
     }
 }
